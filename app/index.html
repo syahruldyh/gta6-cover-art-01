@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEON SHORES — Cover Art Maker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-name">NEON SHORES</span>
+    <span class="brand-sub">Cover Art Maker</span>
+  </div>
+  <p class="topbar-note">Your photos never leave this page — everything renders locally, fully offline.</p>
+</header>
+
+<main class="workspace">
+  <section class="stage">
+    <canvas id="preview" width="1080" height="1350" aria-label="Live cover preview"></canvas>
+    <p class="stage-hint">Click a panel to select it · drag inside a panel to reposition its photo · drop image files here to add them</p>
+  </section>
+
+  <aside class="controls">
+    <div class="group">
+      <h2>1 · Photos</h2>
+      <label class="upload-btn" for="fileInput">Upload your photos</label>
+      <input id="fileInput" type="file" accept="image/*" multiple hidden>
+      <div id="thumbs" class="thumbs" aria-label="Photo library"></div>
+      <label class="check">
+        <input id="spreadToggle" type="checkbox" checked>
+        Spread one photo across all panels
+      </label>
+    </div>
+
+    <div class="group">
+      <h2>2 · Layout</h2>
+      <div id="layoutBtns" class="btn-row"></div>
+      <p id="panelLabel" class="note"></p>
+      <label class="slider-label" for="zoom">Panel zoom
+        <input id="zoom" type="range" min="1" max="3" step="0.01" value="1">
+      </label>
+    </div>
+
+    <div class="group">
+      <h2>3 · Lettering</h2>
+      <label class="field">Title
+        <input id="titleInput" type="text" maxlength="24" value="NEON SHORES">
+      </label>
+      <label class="field">Subtitle
+        <input id="subtitleInput" type="text" maxlength="32" value="Vice Nights">
+      </label>
+    </div>
+
+    <div class="group">
+      <h2>4 · Colour grade</h2>
+      <div id="gradeBtns" class="btn-row"></div>
+      <label class="slider-label" for="gradeRange">Grade intensity
+        <input id="gradeRange" type="range" min="0" max="100" step="1" value="80">
+      </label>
+    </div>
+
+    <div class="group">
+      <h2>5 · Export</h2>
+      <div id="sizeBtns" class="btn-row"></div>
+      <button id="exportBtn" class="export-btn" type="button">Export PNG</button>
+    </div>
+  </aside>
+</main>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
